@@ -4,7 +4,7 @@ You may have seen a sign like the one pictured above while on the highway in Ill
 
 As a non-driver myself, and feeling pressure from family to get my driver's license, I feel all the more sensitive to statistics like this. I don't drive precisely because of the risk of accidents. If we were all driving bouncy bubble cars, I would have gotten my license many years ago. I'm still considering getting my license anyway and I'd feel a lot better if I could pinpoint where the really awful accidents happened.
 
-I want to see a map with positions of the accidents overlaid, and I want to see how that changes over time. I'm using data from the [Fatality Analysis Reporting System](http://www-fars.nhtsa.dot.gov/Main/index.aspx) provided by the [National Highway Traffic Safety Administration](http://www.nhtsa.gov/). Please see [this repository's wiki](https://github.com/tothebeat/fatal-car-crashes/wiki/Data-Sources) for more information.
+I want to see a map with positions of the accidents overlaid, and I want to see how that changes over time. I'm using data from the [Fatality Analysis Reporting System](http://www-fars.nhtsa.dot.gov/Main/index.aspx) provided by the [National Highway Traffic Safety Administration](http://www.nhtsa.gov/).
 
 ![CartoDB Screenshot](cartodb_screenshot.png)
 

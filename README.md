@@ -66,3 +66,24 @@ Check out what the 2012 data looks like below.
 We should not let the numbers go to our heads. After all is said and done, there were still at least 33000 violent and assuredly unexpected deaths of people in 2012. That's like the population of a township just dying tragically in one year. It's mind-boggling. I struggle to comprehend or describe that kind of loss.
 
 Please read Jake Solomon's essay [People, Not Data](https://medium.com/p/47434acb50a8).
+
+# Setup on PythonAnywhere
+
+You can create a free account on [PythonAnywhere](https://www.pythonanywhere.com/) and get access to a bash console and an [IPython](http://ipython.org/) shell in just a few minutes. It's a great way to experiment with Python and git without investing time and energy into creating a development environment.
+
+If you're just creating an account now, choose the option to clone and work on a Github repo. Otherwise, go to your Dashboard and open a bash console. In the console, clone this repository:
+
+```
+git clone https://github.com/tothebeat/fatal-car-crashes.git
+```
+
+If you have trouble copy and pasting into your console, read [their guide on that](https://www.pythonanywhere.com/wiki/CopyAndPaste).
+
+Change directory into the new clone and run the setup script to create a Python [virtualenv](http://www.virtualenv.org/en/latest/) and install the requirements:
+
+```
+cd fatal-car-crashes
+./setup.sh
+```
+
+The `accident.dbf` file for 2012 is included in the repository. If you'd like to see how to convert that to CSV, or see how that conversion works, take a look at `dbf_to_csv.py`.

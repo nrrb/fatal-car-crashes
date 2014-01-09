@@ -9,6 +9,3 @@ I want to see a map with positions of the accidents overlaid, and I want to see 
 ![CartoDB Screenshot](cartodb_screenshot.png)
 
 The above screenshot is from an [animated map using 2012 FARS data](http://cdb.io/1cagt7b).
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tothebeat/fatal-car-crashes/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

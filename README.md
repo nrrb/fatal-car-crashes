@@ -24,7 +24,7 @@ DBF is the [dBASE](http://en.wikipedia.org/wiki/DBase) file format, and it's as 
 Let's say you downloaded data for 2012. Here's how you convert the accident list into a CSV file you can open with, well, almost anything:
 
 ```
-python dbf_to_csv.py 2012/accident.dbf 2012/accident.csv
+python dbf_to_csv.py ./2012/accident.dbf ./2012/accident.csv
 ```
 
 # Trim The Data
@@ -38,7 +38,7 @@ Umm, that CSV file is 4.7 megabytes and thirty-three thousand rows. That's a bit
 To trim accident.csv from the previous step into something a little more manageable:
 
 ```
-python simplify_csv.py 2012/accident.csv 2012/accident_simplified.csv
+python simplify_csv.py ./2012/accident.csv ./2012/accident_simplified.csv
 ```
 
 The new file is still thirty three thousand rows but it's about 25% its former size at 1.2 megabytes.

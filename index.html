@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Fatal-car-crashes by tothebeat</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Fatal-car-crashes</h1>
+        <p class="header">Diving into the data behind signs on Illinois highways that say &quot;693 ROADWAY DEATHS IN 2012.&quot; #peoplenotdata</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/tothebeat/fatal-car-crashes/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/tothebeat/fatal-car-crashes/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/tothebeat/fatal-car-crashes">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/tothebeat">tothebeat</a></p>
+
+
+      </header>
+      <section>
+        <p><img src="https://raw2.github.com/tothebeat/fatal-car-crashes/master/roadsign.jpg" alt="Illinois Road Deaths Sign"></p>
+
+<p>You may have seen a sign like the one pictured above while on the highway in Illinois, displaying how many deaths there have been on the road. The sign above says there had been 957 traffic deaths in 2012. That number is scary, but what does it really mean? Where did they happen and under what conditions? Besides avoiding texting while driving, what else should I be watching out for?</p>
+
+<p>As a non-driver myself, and feeling pressure from family to get my driver's license, I feel all the more sensitive to statistics like this. I don't drive precisely because of the risk of accidents. If we were all driving bouncy bubble cars, I would have gotten my license many years ago. I'm still considering getting my license anyway and I'd feel a lot better if I could pinpoint where the really awful accidents happened.</p>
+
+<p>I want to see a map with positions of the accidents overlaid, and I want to see how that changes over time. I'm using data from the <a href="http://www-fars.nhtsa.dot.gov/Main/index.aspx">Fatality Analysis Reporting System</a> provided by the <a href="http://www.nhtsa.gov/">National Highway Traffic Safety Administration</a>.</p>
+
+<h1>
+<a name="get-the-data" class="anchor" href="#get-the-data"><span class="octicon octicon-link"></span></a>Get The Data</h1>
+
+<p>FARS has data for the years 1975 to 2012 (inclusive). To get year 2012:</p>
+
+<pre><code>./get_data_for_year_XXXX.sh 2012
+</code></pre>
+
+<p>This will create a <code>2012</code> folder, download a ZIP file from FARS to it, and unzip the DBF files there.</p>
+
+<p>DBF is the <a href="http://en.wikipedia.org/wiki/DBase">dBASE</a> file format, and it's as ancient as Time itself. There are several Python modules that read it, but I used <a href="http://dbfpy.sourceforge.net/">dbfpy</a> because it had the best documentation.</p>
+
+<h1>
+<a name="gimme-csv-please" class="anchor" href="#gimme-csv-please"><span class="octicon octicon-link"></span></a>Gimme CSV Please</h1>
+
+<p>Let's say you downloaded data for 2012. Here's how you convert the accident list into a CSV file you can open with, well, almost anything:</p>
+
+<pre><code>python dbf_to_csv.py ./2012/accident.dbf ./2012/accident.csv
+</code></pre>
+
+<h1>
+<a name="trim-the-data" class="anchor" href="#trim-the-data"><span class="octicon octicon-link"></span></a>Trim The Data</h1>
+
+<p>Umm, that CSV file is 4.7 megabytes and thirty-three thousand rows. That's a bit unwieldly if we want to visualize it on the web. Let's cut it down so we have just</p>
+
+<ul>
+<li>The date and time of the accident. Fields: MONTH, DAY, HOUR, MINUTE</li>
+<li>The number of fatalities reported. Field: FATALS</li>
+<li>The geographic location. Fields: LATITUDE, LONGITUD</li>
+</ul><p>To trim accident.csv from the previous step into something a little more manageable:</p>
+
+<pre><code>python simplify_csv.py ./2012/accident.csv ./2012/accident_simplified.csv
+</code></pre>
+
+<p>The new file is still thirty three thousand rows but it's about 25% its former size at 1.2 megabytes.</p>
+
+<h1>
+<a name="do-something-with-it" class="anchor" href="#do-something-with-it"><span class="octicon octicon-link"></span></a>Do Something With It</h1>
+
+<p>Try uploading to <a href="http://cartodb.com/visualize">CartoDB</a> or <a href="http://www.google.com/drive/apps.html#fusiontables">Google Fusion Tables</a> to map this data and explore.</p>
+
+<p>Check out what the 2012 data looks like below.</p>
+
+<h2>
+<a name="cartodb-visualize" class="anchor" href="#cartodb-visualize"><span class="octicon octicon-link"></span></a>CartoDB Visualize</h2>
+
+<p><a href="http://cdb.io/1cagt7b"><img src="https://raw2.github.com/tothebeat/fatal-car-crashes/master/cartodb_screenshot.png" alt="CartoDB Screenshot"></a></p>
+
+<h2>
+<a name="google-fusion-tables" class="anchor" href="#google-fusion-tables"><span class="octicon octicon-link"></span></a>Google Fusion Tables</h2>
+
+<p><a href="https://www.google.com/fusiontables/DataSource?docid=1HSmnbonscs8FbUkrVqr6vPiZFsNR02P_PaRqDNY"><img src="https://raw2.github.com/tothebeat/fatal-car-crashes/master/fusiontable_screenshot.png" alt="Google Fusion Tables Screenshot"></a></p>
+
+<h1>
+<a name="people-not-data" class="anchor" href="#people-not-data"><span class="octicon octicon-link"></span></a>People, Not Data</h1>
+
+<p>We should not let the numbers go to our heads. After all is said and done, there were still at least 33000 violent and assuredly unexpected deaths of people in 2012. That's like the population of a township just dying tragically in one year. It's mind-boggling. I struggle to comprehend or describe that kind of loss.</p>
+
+<p>Please read Jake Solomon's essay <a href="https://medium.com/p/47434acb50a8">People, Not Data</a>.</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>

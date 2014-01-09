@@ -86,4 +86,16 @@ cd fatal-car-crashes
 ./setup.sh
 ```
 
-The `accident.dbf` file for 2012 is included in the repository. If you'd like to see how to convert that to CSV, or see how that conversion works, take a look at `dbf_to_csv.py`.
+The `accident.dbf` file for 2012 is included in the repository. If you'd like to see how to convert that to CSV, or see how that conversion works, take a look at this from `dbf_to_csv.py`:
+
+```python
+def dbf_to_csv(dbf_path, csv_path):
+    with open(dbf_path, 'rb') as dbf_file:
+        database = dbf.Dbf(dbf_file, readOnly=True)
+        with open(csv_path, 'wb') as csv_file:
+            dict_writer = csv.DictWriter(csv_file, fieldnames=sorted(database[0].asDict().keys()))
+            dict_writer.writeheader()
+            for record_number, record in enumerate(database):
+                dict_writer.writerow(record.asDict())
+            print 'Converted {n} rows of DBF file {f}'.format(n=record_number, f=dbf_path)
+```

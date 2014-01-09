@@ -99,3 +99,9 @@ def dbf_to_csv(dbf_path, csv_path):
                 dict_writer.writerow(record.asDict())
             print 'Converted {n} rows of DBF file {f}'.format(n=record_number, f=dbf_path)
 ```
+
+# Talk to me
+
+I'm talking about this project at the [Chicago Python Users Group](http://www.chipy.org/) meeting on January 9.
+
+I also regularly attend the [Open Gov Hack Night](http://opengovhacknight.org/) in Chicago, which is held at 6pm every Tuesday at 1871 in the Merchandise Mart. Please come say hello to me, I'd love to know what you're working on and what challenges you're facing.

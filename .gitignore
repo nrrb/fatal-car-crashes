@@ -1,6 +1,3 @@
 pythonenv/
-*.csv
 *.pyc
-*.dbf
-*.DBF
 *.zip

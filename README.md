@@ -1,4 +1,4 @@
-![Illinois Road Deaths Sign](roadsign.jpg)
+![Illinois Road Deaths Sign](https://raw2.github.com/tothebeat/fatal-car-crashes/master/roadsign.jpg)
 
 You may have seen a sign like the one pictured above while on the highway in Illinois, displaying how many deaths there have been on the road. The sign above says there had been 957 traffic deaths in 2012. That number is scary, but what does it really mean? Where did they happen and under what conditions? Besides avoiding texting while driving, what else should I be watching out for?
 
@@ -6,9 +6,6 @@ As a non-driver myself, and feeling pressure from family to get my driver's lice
 
 I want to see a map with positions of the accidents overlaid, and I want to see how that changes over time. I'm using data from the [Fatality Analysis Reporting System](http://www-fars.nhtsa.dot.gov/Main/index.aspx) provided by the [National Highway Traffic Safety Administration](http://www.nhtsa.gov/).
 
-![CartoDB Screenshot](cartodb_screenshot.png)
-
-The above screenshot is from an [animated map using 2012 FARS data](http://cdb.io/1cagt7b).
 
 # Get The Data
 
@@ -48,7 +45,17 @@ The new file is still thirty three thousand rows but it's about 25% its former s
 
 # Do Something With It
 
-Upload this to [CartoDB](http://cartodb.com/visualize) or [Google Fusion Tables](http://www.google.com/drive/apps.html#fusiontables) to map this data and explore.
+Try uploading to [CartoDB](http://cartodb.com/visualize) or [Google Fusion Tables](http://www.google.com/drive/apps.html#fusiontables) to map this data and explore.
+
+Check out what the 2012 data looks like below.
+
+## CartoDB Visualize
+
+[![CartoDB Screenshot](https://raw2.github.com/tothebeat/fatal-car-crashes/master/cartodb_screenshot.png)](http://cdb.io/1cagt7b)
+
+## Google Fusion Tables
+
+[![Google Fusion Tables Screenshot](https://raw2.github.com/tothebeat/fatal-car-crashes/master/fusiontable_screenshot.png)](https://www.google.com/fusiontables/DataSource?docid=1HSmnbonscs8FbUkrVqr6vPiZFsNR02P_PaRqDNY)
 
 # People, Not Data
 

@@ -102,6 +102,10 @@ def dbf_to_csv(dbf_path, csv_path):
 
 # Talk to me
 
-I'm talking about this project at the [Chicago Python Users Group](http://www.chipy.org/) meeting on January 9.
+I talked about this project at the [Chicago Python Users Group](http://www.chipy.org/) meeting on January 9:
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=MN1y5lvSHQ8
+" target="_blank"><img src="http://img.youtube.com/vi/MN1y5lvSHQ8/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 I also regularly attend the [Open Gov Hack Night](http://opengovhacknight.org/) in Chicago, which is held at 6pm every Tuesday at 1871 in the Merchandise Mart. Please come say hello to me, I'd love to know what you're working on and what challenges you're facing.

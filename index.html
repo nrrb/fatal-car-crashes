@@ -42,6 +42,13 @@
 <h1>
 <a name="wheres-the-data" class="anchor" href="#wheres-the-data"><span class="octicon octicon-link"></span></a>Where's The Data?</h1>
 
+<p>Download ZIP archives of each of the years, from 1975 to 2012, from <a href="https://drive.google.com/folderview?id=0B-uK_N5AC6DqUllFM3JvYk93RTQ&amp;usp=drive_web">my Google Drive</a>. </p>
+
+<p>Re-host it somewhere better and tell me about it so I can update this documentation.</p>
+
+<h1>
+<a name="whered-the-data-come-from" class="anchor" href="#whered-the-data-come-from"><span class="octicon octicon-link"></span></a>Where'd The Data Come From?</h1>
+
 <p>The <a href="http://www.nhtsa.gov/">National Highway Traffic Safety Administration</a> operates something they call the <a href="http://www-fars.nhtsa.dot.gov/Main/index.aspx">Fatality Analysis Reporting System</a>, which provides <em>extensive</em> data on all accidents that result in deaths on the roadway. They don't report trauma and death in the hospitals, because at that point it's health information and private.</p>
 
 <h1>
@@ -103,6 +110,46 @@
 <p>We should not let the numbers go to our heads. After all is said and done, there were still at least 33000 violent and assuredly unexpected deaths of people in 2012. That's like the population of a township just dying tragically in one year. It's mind-boggling. I struggle to comprehend or describe that kind of loss.</p>
 
 <p>Please read Jake Solomon's essay <a href="https://medium.com/p/47434acb50a8">People, Not Data</a>.</p>
+
+<h1>
+<a name="setup-on-pythonanywhere" class="anchor" href="#setup-on-pythonanywhere"><span class="octicon octicon-link"></span></a>Setup on PythonAnywhere</h1>
+
+<p>You can create a free account on <a href="https://www.pythonanywhere.com/">PythonAnywhere</a> and get access to a bash console and an <a href="http://ipython.org/">IPython</a> shell in just a few minutes. It's a great way to experiment with Python and git without investing time and energy into creating a development environment.</p>
+
+<p>If you're just creating an account now, choose the option to clone and work on a Github repo. Otherwise, go to your Dashboard and open a bash console. In the console, clone this repository:</p>
+
+<pre><code>git clone https://github.com/tothebeat/fatal-car-crashes.git
+</code></pre>
+
+<p>If you have trouble copy and pasting into your console, read <a href="https://www.pythonanywhere.com/wiki/CopyAndPaste">their guide on that</a>.</p>
+
+<p>Change directory into the new clone and run the setup script to create a Python <a href="http://www.virtualenv.org/en/latest/">virtualenv</a> and install the requirements:</p>
+
+<pre><code>cd fatal-car-crashes
+./setup.sh
+</code></pre>
+
+<p>The <code>accident.dbf</code> file for 2012 is included in the repository. If you'd like to see how to convert that to CSV, or see how that conversion works, take a look at this from <code>dbf_to_csv.py</code>:</p>
+
+<div class="highlight highlight-python"><pre><span class="k">def</span> <span class="nf">dbf_to_csv</span><span class="p">(</span><span class="n">dbf_path</span><span class="p">,</span> <span class="n">csv_path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dbf_path</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">dbf_file</span><span class="p">:</span>
+        <span class="n">database</span> <span class="o">=</span> <span class="n">dbf</span><span class="o">.</span><span class="n">Dbf</span><span class="p">(</span><span class="n">dbf_file</span><span class="p">,</span> <span class="n">readOnly</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csv_path</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span>
+            <span class="n">dict_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">database</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">asDict</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+            <span class="n">dict_writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">record_number</span><span class="p">,</span> <span class="n">record</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">database</span><span class="p">):</span>
+                <span class="n">dict_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">asDict</span><span class="p">())</span>
+            <span class="k">print</span> <span class="s">'Converted {n} rows of DBF file {f}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">record_number</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">dbf_path</span><span class="p">)</span>
+</pre></div>
+
+<h1>
+<a name="talk-to-me" class="anchor" href="#talk-to-me"><span class="octicon octicon-link"></span></a>Talk to me</h1>
+
+<p>I talked about this project at the <a href="http://www.chipy.org/">Chicago Python Users Group</a> meeting on January 9:</p>
+
+<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=MN1y5lvSHQ8%0A" target="_blank"><img src="http://img.youtube.com/vi/MN1y5lvSHQ8/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10"></a></p>
+
+<p>I also regularly attend the <a href="http://opengovhacknight.org/">Open Gov Hack Night</a> in Chicago, which is held at 6pm every Tuesday at 1871 in the Merchandise Mart. Please come say hello to me, I'd love to know what you're working on and what challenges you're facing.</p>
       </section>
       <footer>
         <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>

@@ -8,6 +8,12 @@ As a non-driver myself, and feeling pressure from family to get my driver's lice
 
 # Where's The Data?
 
+Download ZIP archives of each of the years, from 1975 to 2012, from [my Google Drive](https://drive.google.com/folderview?id=0B-uK_N5AC6DqUllFM3JvYk93RTQ&usp=drive_web). 
+
+Re-host it somewhere better and tell me about it so I can update this documentation.
+
+# Where'd The Data Come From?
+
 The [National Highway Traffic Safety Administration](http://www.nhtsa.gov/) operates something they call the [Fatality Analysis Reporting System](http://www-fars.nhtsa.dot.gov/Main/index.aspx), which provides _extensive_ data on all accidents that result in deaths on the roadway. They don't report trauma and death in the hospitals, because at that point it's health information and private.
 
 

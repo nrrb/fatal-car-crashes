@@ -24,8 +24,4 @@ if __name__ == "__main__":
         print 'Error! {0} is a mirage.'.format(csv_read_path)
         sys.exit(1)
 
-    if os.path.exists(csv_write_path):
-        print "I just want you to know that you're about to overwrite a file."
-        print "...\nI'm going to do it anyway."
-
     simplify_csv_file(csv_read_path, csv_write_path)

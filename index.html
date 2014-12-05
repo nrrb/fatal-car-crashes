@@ -30,29 +30,29 @@
 
       </header>
       <section>
-        <p><img src="https://raw2.github.com/tothebeat/fatal-car-crashes/master/roadsign.jpg" alt="Illinois Road Deaths Sign"></p>
+        <p><img src="https://raw.githubusercontent.com/tothebeat/fatal-car-crashes/master/roadsign.jpg" alt="Illinois Road Deaths Sign"></p>
 
 <h1>
-<a name="motivation" class="anchor" href="#motivation"><span class="octicon octicon-link"></span></a>Motivation</h1>
+<a id="motivation" class="anchor" href="#motivation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Motivation</h1>
 
 <p>You may have seen a sign like the one pictured above while on the highway in Illinois, displaying how many deaths there have been on the road. The sign above says there had been 957 traffic deaths in 2012. That number is scary, but what does it really mean? Where did they happen and under what conditions? Besides avoiding texting while driving, what else should I be watching out for?</p>
 
 <p>As a non-driver myself, and feeling pressure from family to get my driver's license, I feel all the more sensitive to statistics like this. I don't drive precisely because of the risk of accidents. If we were all driving bouncy bubble cars, I would have gotten my license many years ago. I'm still considering getting my license anyway and I'd feel a lot better if I could pinpoint where the really awful accidents happened.</p>
 
 <h1>
-<a name="wheres-the-data" class="anchor" href="#wheres-the-data"><span class="octicon octicon-link"></span></a>Where's The Data?</h1>
+<a id="wheres-the-data" class="anchor" href="#wheres-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Where's The Data?</h1>
 
 <p>Download ZIP archives of each of the years, from 1975 to 2012, from <a href="https://drive.google.com/folderview?id=0B-uK_N5AC6DqUllFM3JvYk93RTQ&amp;usp=drive_web">my Google Drive</a>. </p>
 
 <p>Re-host it somewhere better and tell me about it so I can update this documentation.</p>
 
 <h1>
-<a name="whered-the-data-come-from" class="anchor" href="#whered-the-data-come-from"><span class="octicon octicon-link"></span></a>Where'd The Data Come From?</h1>
+<a id="whered-the-data-come-from" class="anchor" href="#whered-the-data-come-from" aria-hidden="true"><span class="octicon octicon-link"></span></a>Where'd The Data Come From?</h1>
 
 <p>The <a href="http://www.nhtsa.gov/">National Highway Traffic Safety Administration</a> operates something they call the <a href="http://www-fars.nhtsa.dot.gov/Main/index.aspx">Fatality Analysis Reporting System</a>, which provides <em>extensive</em> data on all accidents that result in deaths on the roadway. They don't report trauma and death in the hospitals, because at that point it's health information and private.</p>
 
 <h1>
-<a name="nhtsa-fars-ftp-dbf-wut-getting-the-data" class="anchor" href="#nhtsa-fars-ftp-dbf-wut-getting-the-data"><span class="octicon octicon-link"></span></a>NHTSA FARS FTP DBF WUT (Getting The Data)</h1>
+<a id="nhtsa-fars-ftp-dbf-wut-getting-the-data" class="anchor" href="#nhtsa-fars-ftp-dbf-wut-getting-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>NHTSA FARS FTP DBF WUT (Getting The Data)</h1>
 
 <p>FARS has data for the years 1975 to 2012 (inclusive). To get data for 2012:</p>
 
@@ -62,7 +62,7 @@
 <p>This will create a <code>2012</code> folder, download a ZIP file from FARS to it, and unzip the DBF files there.</p>
 
 <h1>
-<a name="dbf---csv-with-python" class="anchor" href="#dbf---csv-with-python"><span class="octicon octicon-link"></span></a>DBF -&gt; CSV with Python</h1>
+<a id="dbf---csv-with-python" class="anchor" href="#dbf---csv-with-python" aria-hidden="true"><span class="octicon octicon-link"></span></a>DBF -&gt; CSV with Python</h1>
 
 <p>DBF is the <a href="http://en.wikipedia.org/wiki/DBase">dBASE</a> file format, and it's as ancient as Time itself. There are several Python modules that read it, but I used <a href="http://dbfpy.sourceforge.net/">dbfpy</a> because it had the best documentation.</p>
 
@@ -72,7 +72,7 @@
 </code></pre>
 
 <h2>
-<a name="trim-the-data" class="anchor" href="#trim-the-data"><span class="octicon octicon-link"></span></a>Trim The Data</h2>
+<a id="trim-the-data" class="anchor" href="#trim-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trim The Data</h2>
 
 <p>Umm, that CSV file is 4.7 megabytes and thirty-three thousand rows. That's a bit unwieldly if we want to visualize it on the web. Let's cut it down so we have just</p>
 
@@ -80,7 +80,9 @@
 <li>The date and time of the accident. Fields: MONTH, DAY, HOUR, MINUTE</li>
 <li>The number of fatalities reported. Field: FATALS</li>
 <li>The geographic location. Fields: LATITUDE, LONGITUD</li>
-</ul><p>To trim accident.csv from the previous step into something a little more manageable:</p>
+</ul>
+
+<p>To trim accident.csv from the previous step into something a little more manageable:</p>
 
 <pre><code>python simplify_csv.py ./2012/accident.csv ./2012/accident_simplified.csv
 </code></pre>
@@ -88,31 +90,31 @@
 <p>The new file is still thirty three thousand rows but it's about 25% its former size at 1.2 megabytes.</p>
 
 <h1>
-<a name="do-something-with-it" class="anchor" href="#do-something-with-it"><span class="octicon octicon-link"></span></a>Do Something With It</h1>
+<a id="do-something-with-it" class="anchor" href="#do-something-with-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do Something With It</h1>
 
 <p>Try uploading to <a href="http://cartodb.com/visualize">CartoDB</a> or <a href="http://www.google.com/drive/apps.html#fusiontables">Google Fusion Tables</a> to map this data and explore.</p>
 
 <p>Check out what the 2012 data looks like below.</p>
 
 <h2>
-<a name="cartodb-visualize" class="anchor" href="#cartodb-visualize"><span class="octicon octicon-link"></span></a>CartoDB Visualize</h2>
+<a id="cartodb-visualize" class="anchor" href="#cartodb-visualize" aria-hidden="true"><span class="octicon octicon-link"></span></a>CartoDB Visualize</h2>
 
-<p><a href="http://cdb.io/1cagt7b"><img src="https://raw2.github.com/tothebeat/fatal-car-crashes/master/cartodb_screenshot.png" alt="CartoDB Screenshot"></a></p>
+<p><a href="http://cdb.io/1cagt7b"><img src="https://raw.githubusercontent.com/tothebeat/fatal-car-crashes/master/cartodb_screenshot.png" alt="CartoDB Screenshot"></a></p>
 
 <h2>
-<a name="google-fusion-tables" class="anchor" href="#google-fusion-tables"><span class="octicon octicon-link"></span></a>Google Fusion Tables</h2>
+<a id="google-fusion-tables" class="anchor" href="#google-fusion-tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Google Fusion Tables</h2>
 
-<p><a href="https://www.google.com/fusiontables/DataSource?docid=1HSmnbonscs8FbUkrVqr6vPiZFsNR02P_PaRqDNY"><img src="https://raw2.github.com/tothebeat/fatal-car-crashes/master/fusiontable_screenshot.png" alt="Google Fusion Tables Screenshot"></a></p>
+<p><a href="https://www.google.com/fusiontables/DataSource?docid=1HSmnbonscs8FbUkrVqr6vPiZFsNR02P_PaRqDNY"><img src="https://raw.githubusercontent.com/tothebeat/fatal-car-crashes/master/fusiontable_screenshot.png" alt="Google Fusion Tables Screenshot"></a></p>
 
 <h1>
-<a name="people-not-data" class="anchor" href="#people-not-data"><span class="octicon octicon-link"></span></a>People, Not Data</h1>
+<a id="people-not-data" class="anchor" href="#people-not-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>People, Not Data</h1>
 
 <p>We should not let the numbers go to our heads. After all is said and done, there were still at least 33000 violent and assuredly unexpected deaths of people in 2012. That's like the population of a township just dying tragically in one year. It's mind-boggling. I struggle to comprehend or describe that kind of loss.</p>
 
 <p>Please read Jake Solomon's essay <a href="https://medium.com/p/47434acb50a8">People, Not Data</a>.</p>
 
 <h1>
-<a name="setup-on-pythonanywhere" class="anchor" href="#setup-on-pythonanywhere"><span class="octicon octicon-link"></span></a>Setup on PythonAnywhere</h1>
+<a id="setup-on-pythonanywhere" class="anchor" href="#setup-on-pythonanywhere" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup on PythonAnywhere</h1>
 
 <p>You can create a free account on <a href="https://www.pythonanywhere.com/">PythonAnywhere</a> and get access to a bash console and an <a href="http://ipython.org/">IPython</a> shell in just a few minutes. It's a great way to experiment with Python and git without investing time and energy into creating a development environment.</p>
 
@@ -131,19 +133,18 @@
 
 <p>The <code>accident.dbf</code> file for 2012 is included in the repository. If you'd like to see how to convert that to CSV, or see how that conversion works, take a look at this from <code>dbf_to_csv.py</code>:</p>
 
-<div class="highlight highlight-python"><pre><span class="k">def</span> <span class="nf">dbf_to_csv</span><span class="p">(</span><span class="n">dbf_path</span><span class="p">,</span> <span class="n">csv_path</span><span class="p">):</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dbf_path</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">dbf_file</span><span class="p">:</span>
-        <span class="n">database</span> <span class="o">=</span> <span class="n">dbf</span><span class="o">.</span><span class="n">Dbf</span><span class="p">(</span><span class="n">dbf_file</span><span class="p">,</span> <span class="n">readOnly</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csv_path</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span>
-            <span class="n">dict_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">database</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">asDict</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
-            <span class="n">dict_writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
-            <span class="k">for</span> <span class="n">record_number</span><span class="p">,</span> <span class="n">record</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">database</span><span class="p">):</span>
-                <span class="n">dict_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">asDict</span><span class="p">())</span>
-            <span class="k">print</span> <span class="s">'Converted {n} rows of DBF file {f}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">record_number</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">dbf_path</span><span class="p">)</span>
-</pre></div>
+<div class="highlight highlight-python"><pre><span class="pl-st">def</span> <span class="pl-en">dbf_to_csv</span>(<span class="pl-vpf">dbf_path</span>, <span class="pl-vpf">csv_path</span>):
+    <span class="pl-k">with</span> <span class="pl-s3">open</span>(dbf_path, <span class="pl-s1"><span class="pl-pds">'</span>rb<span class="pl-pds">'</span></span>) <span class="pl-k">as</span> dbf_file:
+        database <span class="pl-k">=</span> dbf.Dbf(dbf_file, <span class="pl-vpf">readOnly</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
+        <span class="pl-k">with</span> <span class="pl-s3">open</span>(csv_path, <span class="pl-s1"><span class="pl-pds">'</span>wb<span class="pl-pds">'</span></span>) <span class="pl-k">as</span> csv_file:
+            dict_writer <span class="pl-k">=</span> csv.DictWriter(csv_file, <span class="pl-vpf">fieldnames</span><span class="pl-k">=</span><span class="pl-s3">sorted</span>(database[<span class="pl-c1">0</span>].asDict().keys()))
+            dict_writer.writeheader()
+            <span class="pl-k">for</span> record_number, record <span class="pl-k">in</span> <span class="pl-s3">enumerate</span>(database):
+                dict_writer.writerow(record.asDict())
+            <span class="pl-k">print</span> <span class="pl-s1"><span class="pl-pds">'</span>Converted <span class="pl-c1">{n}</span> rows of DBF file <span class="pl-c1">{f}</span><span class="pl-pds">'</span></span>.format(<span class="pl-vpf">n</span><span class="pl-k">=</span>record_number, <span class="pl-vpf">f</span><span class="pl-k">=</span>dbf_path)</pre></div>
 
 <h1>
-<a name="talk-to-me" class="anchor" href="#talk-to-me"><span class="octicon octicon-link"></span></a>Talk to me</h1>
+<a id="talk-to-me" class="anchor" href="#talk-to-me" aria-hidden="true"><span class="octicon octicon-link"></span></a>Talk to me</h1>
 
 <p>I talked about this project at the <a href="http://www.chipy.org/">Chicago Python Users Group</a> meeting on January 9:</p>
 

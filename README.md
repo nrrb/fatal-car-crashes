@@ -1,4 +1,4 @@
-![Illinois Road Deaths Sign](https://raw2.github.com/tothebeat/fatal-car-crashes/master/roadsign.jpg)
+![Illinois Road Deaths Sign](https://raw.githubusercontent.com/tothebeat/fatal-car-crashes/master/roadsign.jpg)
 
 # Motivation
 
@@ -61,11 +61,11 @@ Check out what the 2012 data looks like below.
 
 ## CartoDB Visualize
 
-[![CartoDB Screenshot](https://raw2.github.com/tothebeat/fatal-car-crashes/master/cartodb_screenshot.png)](http://cdb.io/1cagt7b)
+[![CartoDB Screenshot](https://raw.githubusercontent.com/tothebeat/fatal-car-crashes/master/cartodb_screenshot.png)](http://cdb.io/1cagt7b)
 
 ## Google Fusion Tables
 
-[![Google Fusion Tables Screenshot](https://raw2.github.com/tothebeat/fatal-car-crashes/master/fusiontable_screenshot.png)](https://www.google.com/fusiontables/DataSource?docid=1HSmnbonscs8FbUkrVqr6vPiZFsNR02P_PaRqDNY)
+[![Google Fusion Tables Screenshot](https://raw.githubusercontent.com/tothebeat/fatal-car-crashes/master/fusiontable_screenshot.png)](https://www.google.com/fusiontables/DataSource?docid=1HSmnbonscs8FbUkrVqr6vPiZFsNR02P_PaRqDNY)
 
 # People, Not Data
 
